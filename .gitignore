@@ -1,0 +1,61 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Django
+*.log
+*.pot
+*.py[cod]
+db.sqlite3
+*.sqlite3
+/static/
+/media/
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# PyCharm
+*.iml
+*.ipr
+*.iws
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Coverage
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pytest
+.cache
+nosetests.xml
+
+# Sphinx documentation
+docs/_build/
+
+# Django stuff:
+*.pot
+*.mo
+
+# Local env files
+.env.local
+.env.*.local
