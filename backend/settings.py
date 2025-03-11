@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-b7(wn-q))#3a6+&0a@*-10zb-(-3^m*_6^s3bxt*$-d$azx48%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["django-vuejs-todo-frontend.vercel.app", "django-vuejs-todo-backend.onrender.com", "127.0.0.1", "localhost"]
 
