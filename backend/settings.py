@@ -15,7 +15,7 @@ import os
 from urllib.parse import urlparse
 import dj_database_url
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('DATABASE_URL', '')
 
 db_config = urlparse(DATABASE_URL)
 
@@ -32,8 +32,19 @@ SECRET_KEY = 'django-insecure-b7(wn-q))#3a6+&0a@*-10zb-(-3^m*_6^s3bxt*$-d$azx48%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://django-vuejs-todo-frontend.vercel.app", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["django-vuejs-todo-frontend.vercel.app", "django-vuejs-todo-backend.onrender.com", "127.0.0.1", "localhost"]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://django-vuejs-todo-frontend.vercel.app",
+    "https://django-vuejs-todo-backend.onrender.com"
+]
 
 # Application definition
 
@@ -93,8 +104,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+if DATABASE_URL:
+    DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
     # 'default': {
     #     # 'ENGINE': 'django.db.backends.sqlite3',
     #     # 'NAME': BASE_DIR / 'db.sqlite3',
@@ -112,7 +133,7 @@ DATABASES = {
     #     # 'HOST': os.getenv('DATABASE_HOST'),
     #     # 'PORT': os.getenv('DATABASE_PORT'),
     # }
-}
+# }
 
 
 # Password validation
