@@ -113,7 +113,7 @@ if DATABASE_URL:
         # )
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'newtest',
+            'NAME': 'newtestdb',
             'USER': 'newtestuser',
             'PASSWORD': 'GIC14shH14M0pYiKqnXpmCEcuHmMyjG6',
             'HOST': 'dpg-cv7n98lumphs73frhgn0-a',
