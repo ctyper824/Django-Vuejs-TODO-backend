@@ -104,29 +104,28 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if DATABASE_URL:
-    DATABASES = {
-        # "default": dj_database_url.config(
-        #     default=DATABASE_URL,
-        #     conn_max_age=600,  # Improves performance
-        #     ssl_require=True   # Enforces secure connection
-        # )
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'newtestdb',
-            'USER': 'newtestuser',
-            'PASSWORD': 'GIC14shH14M0pYiKqnXpmCEcuHmMyjG6',
-            'HOST': 'dpg-cv7n98lumphs73frhgn0-a',
-            'PORT': '5432',
-        }
+DATABASES = {
+    # "default": dj_database_url.config(
+    #     default=DATABASE_URL,
+    #     conn_max_age=600,  # Improves performance
+    #     ssl_require=True   # Enforces secure connection
+    # )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'newtestdb',
+        'USER': 'newtestuser',
+        'PASSWORD': 'GIC14shH14M0pYiKqnXpmCEcuHmMyjG6',
+        'HOST': 'dpg-cv7n98lumphs73frhgn0-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
+}
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#         }
+#     }
 
 # DATABASES = {
 #     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
